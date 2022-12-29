@@ -8,22 +8,24 @@
 				<view class="flex items-center" style="height: 50px">
 					<view style="width: 65px">手机号:</view>
 					<view>
-						<input class="bg-white" type="number" placeholder="请输入手机号" />
+						<input class="bg-white" type="number" placeholder="请输入手机号" v-model="formData.phoneNumber" />
 					</view>
 				</view>
 				<view class="flex items-center relative" style="height: 50px">
 					<view style="width: 65px">验证码:</view>
-					<input class="bg-white" type="number" placeholder="请输入4位数验证码" />
+					<input class="bg-white" type="number" placeholder="请输入4位数验证码" v-model="formData.code" />
 					<view
-						class="absolute right-0 text-xs bg-success text-white rounded-sm m-scale-85"
-						style="padding: 6px"
+						class="absolute right-0 text-sm bg-success text-white rounded-xs m-scale-85"
+						:class="{ 'opacity-6': codeCountDown !== 0 }"
+						style="padding: 6px 8px"
 						@click="getCode">
 						{{ codeCountDown === 0 ? '获取验证码' : `再次发送${codeCountDown}` }}
 					</view>
 				</view>
 				<view
 					class="mt-4 w-full flex-center mx-auto font-bold bg-primary text-white rounded-sm m-scale-95"
-					style="height: 40px">
+					style="height: 40px"
+					@click="submit">
 					登&nbsp;&nbsp;&nbsp;&nbsp;录
 				</view>
 				<view class="w-full mt-8">
