@@ -1,0 +1,14 @@
+.m-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 6px 8px;
+  border-radius: 8px;
+  background-color: var(--color-primary);
+  color: var(--color-white);
+
+  &:active:focus {
+    background-color: var(--color-primary);
+    color: var(--color-white);
+  }
+}

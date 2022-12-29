@@ -1,0 +1,31 @@
+view,
+scroll-view,
+swiper,
+button,
+input,
+textarea,
+label,
+navigator,
+image {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+view,text{
+  font-size: 16px;
+}
+
+.uni-row {
+  width: 100%;
+}
+
+// 解决导航栏右边配置的文字按钮底部被隐藏一点点
+.uni-page-head .uni-btn-icon {
+  padding: 2px;
+}
+
+.uni-input-placeholder{
+  font-size: 14px;
+}
+

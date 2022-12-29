@@ -1,0 +1,41 @@
+.static {
+  position: static;
+}
+
+.fixed {
+  position: fixed;
+}
+
+.absolute {
+  position: absolute;
+}
+
+.relative {
+  position: relative;
+}
+
+.sticky {
+  position: sticky;
+}
+
+@for $i from 0 through 10{
+  .top-#{$i}{
+    top: 10 * $i + rpx;
+  }
+
+  .bottom-#{$i}{
+    bottom: 10 * $i + rpx;
+  }
+
+  .left-#{$i}{
+    left: 10 * $i + rpx;
+  }
+
+  .right-#{$i}{
+    right: 10 * $i + rpx;
+  }
+
+  .z-#{$i}{
+    z-index: $i;
+  }
+}

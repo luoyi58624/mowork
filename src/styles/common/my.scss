@@ -1,0 +1,49 @@
+.m-scale-85 {
+  transition: transform 0.15s ease-in-out;
+
+  &:active:hover {
+    transform: scale(0.85);
+  }
+}
+
+.m-scale-90 {
+  transition: transform 0.15s ease-in-out;
+
+  &:active:hover {
+    transform: scale(0.9);
+  }
+}
+
+.m-scale-95 {
+  transition: transform 0.15s ease-in-out;
+
+  &:active:hover {
+    transform: scale(0.95);
+  }
+}
+
+.m-elevation-1 {
+  box-shadow: 0 1px 1.5px -1px rgba(0, 0, 0, 0.05), 0 8px 12px -1px rgba(0, 0, 0, 0.025);
+}
+
+.m-elevation-2 {
+  box-shadow: 0 0 1.1px rgba(0, 0, 0, 0.065), 0 0 3.6px rgba(0, 0, 0, 0.095), 0 0 16px rgba(0, 0, 0, 0.16);
+}
+
+.m-shadow {
+  box-shadow: 0 1px 1.5px rgba(0, 0, 0, 0.07), 0 8px 12px rgba(0, 0, 0, 0.14);
+}
+
+// 目标元素设置 "rotate-180 active" 两个类将旋转180度，移除 "active" 类将还原
+.rotate-180 {
+  transition: transform 0.25s ease-out;
+  transform: rotate(0deg);
+
+  &.active{
+    transform: rotate(180deg);
+  }
+}
+
+.m-input{
+  padding: 8px 12px;
+}

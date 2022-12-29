@@ -1,0 +1,158 @@
+page {
+	--color-white: #{$uni-color-white};
+	--color-white-1: #{$uni-color-white-1};
+	--color-white-2: #{$uni-color-white-2};
+	--color-white-3: #{$uni-color-white-3};
+	--color-black: #{$uni-color-black};
+	--color-black-1: #{$uni-color-black-1};
+	--color-black-2: #{$uni-color-black-2};
+	--color-black-3: #{$uni-color-black-3};
+	--color-primary: #{$uni-color-primary};
+	--color-primary-light: #{$uni-color-primary-light};
+	--color-success: #{$uni-color-success};
+	--color-success-light: #{$uni-color-success-light};
+	--color-warning: #{$uni-color-warning};
+	--color-warning-light: #{$uni-color-warning-light};
+	--color-error: #{$uni-color-error};
+	--color-error-light: #{$uni-color-error-light};
+	--color-info: #{$uni-color-info};
+	--color-info-light: #{$uni-color-info-light};
+}
+
+.bg-white {
+	background-color: var(--color-white);
+}
+
+.text-white {
+	color: var(--color-white);
+}
+
+.bg-white-1 {
+	background-color: var(--color-white-1);
+}
+
+.text-white-1 {
+	color: var(--color-white-1);
+}
+
+.bg-white-2 {
+	background-color: var(--color-white-2);
+}
+
+.text-white-2 {
+	color: var(--color-white-2);
+}
+
+.bg-white-3 {
+	background-color: var(--color-white-3);
+}
+
+.text-white-3 {
+	color: var(--color-white-3);
+}
+
+.bg-black {
+	background-color: var(--color-black);
+}
+
+.text-black {
+	color: var(--color-black);
+}
+
+.bg-black-1 {
+	background-color: var(--color-black-1);
+}
+
+.text-black-1 {
+	color: var(--color-black-1);
+}
+
+.bg-black-2 {
+	background-color: var(--color-black-2);
+}
+
+.text-black-2 {
+	color: var(--color-black-2);
+}
+
+.bg-black-3 {
+	background-color: var(--color-black-3);
+}
+
+.text-black-3 {
+	color: var(--color-black-3);
+}
+
+.bg-primary {
+	background-color: var(--color-primary);
+}
+
+.bg-primary-light {
+	background-color: var(--color-primary-light);
+}
+
+.text-primary {
+	color: var(--color-primary);
+}
+
+.bg-success {
+	background-color: var(--color-success);
+}
+
+.bg-success-light {
+	background-color: var(--color-success-light);
+}
+
+.text-success {
+	color: var(--color-success);
+}
+
+.bg-warning {
+	background-color: var(--color-warning);
+}
+
+.bg-warning-light {
+	background-color: var(--color-warning-light);
+}
+
+.text-warning {
+	color: var(--color-warning);
+}
+
+.bg-error {
+	background-color: var(--color-error);
+}
+
+.bg-error-light {
+	background-color: var(--color-error-light);
+}
+
+.text-error {
+	color: var(--color-error);
+}
+
+.bg-info {
+	background-color: var(--color-info);
+}
+
+.bg-info-light {
+	background-color: var(--color-info-light);
+}
+
+.text-info {
+	color: var(--color-info);
+}
+
+.bg-transparent {
+	background-color: transparent;
+}
+
+.opacity-0 {
+	opacity: 0;
+}
+
+@for $i from 1 through 10 {
+	.opacity-#{$i} {
+		opacity: 0.1 * $i;
+	}
+}

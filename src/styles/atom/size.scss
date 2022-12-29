@@ -1,0 +1,104 @@
+.w-screen {
+  width: 100vw;
+}
+
+.h-screen {
+  // 如果是h5页面，页面高度需要减去底部导航栏的高度，底部导航栏固定50px
+  /*  #ifdef H5  */
+  height: calc(100vh - 50px);
+  /*  #endif  */
+
+  /*  #ifndef H5  */
+  height: 100vh;
+  /*  #endif  */
+}
+
+.w-full {
+  width: 100%;
+}
+
+.h-full {
+  height: 100%;
+}
+
+.w-0 {
+  width: 0;
+}
+
+.h-0 {
+  height: 0;
+}
+
+.min-w-0 {
+  min-width: 0;
+}
+
+.min-h-0 {
+  min-height: 0;
+}
+
+.mx-auto {
+  margin: 0 auto;
+}
+
+@for $i from 1 through 10 {
+  .m-#{$i} {
+    margin: 4 * $i + px;
+  }
+
+  .mx-#{$i} {
+    margin-left: 4 * $i + px;
+    margin-right: 4 * $i + px;
+  }
+
+  .my-#{$i} {
+    margin-top: 4 * $i + px;
+    margin-bottom: 4 * $i + px;
+  }
+
+  .mt-#{$i} {
+    margin-top: 4 * $i + px;
+  }
+
+  .mb-#{$i} {
+    margin-bottom: 4 * $i + px;
+  }
+
+  .ml-#{$i} {
+    margin-left: 4 * $i + px;
+  }
+
+  .mr-#{$i} {
+    margin-right: 4 * $i + px;
+  }
+
+  .p-#{$i} {
+    padding: 4 * $i + px;
+  }
+
+  .px-#{$i} {
+    padding-left: 4 * $i + px;
+    padding-right: 4 * $i + px;
+  }
+
+  .py-#{$i} {
+    padding-top: 4 * $i + px;
+    padding-bottom: 4 * $i + px;
+  }
+
+  .pt-#{$i} {
+    padding-top: 4 * $i + px;
+  }
+
+  .pb-#{$i} {
+    padding-bottom: 4 * $i + px;
+  }
+
+  .pl-#{$i} {
+    padding-left: 4 * $i + px;
+  }
+
+  .pr-#{$i} {
+    padding-right: 4 * $i + px;
+  }
+}
