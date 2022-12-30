@@ -32,6 +32,7 @@
     "@dcloudio/uni-mp-weixin": "^3.0.0-3061520221228001",
     "@dcloudio/uni-quickapp-webview": "^3.0.0-3061520221228001",
     "@dcloudio/uni-ui": "^1.4.23",
+    "dayjs": "^1.11.7",
     "lodash-es": "^4.17.21",
     "pinia": "^2.0.28",
     "qs": "^6.11.0",

@@ -10,6 +10,7 @@ import ULoadingIcon from 'uview-plus/components/u-loading-icon/u-loading-icon.vu
 import UForm from 'uview-plus/components/u-form/u-form.vue'
 import UFormItem from 'uview-plus/components/u-form-item/u-form-item.vue'
 import UInput from 'uview-plus/components/u-input/u-input.vue'
+import USearch from 'uview-plus/components/u-search/u-search.vue'
 import UPopup from 'uview-plus/components/u-popup/u-popup.vue'
 import UDivider from 'uview-plus/components/u-divider/u-divider.vue'
 import UCode from 'uview-plus/components/u-code/u-code.vue'
@@ -17,6 +18,7 @@ import UPicker from 'uview-plus/components/u-picker/u-picker.vue'
 import UCell from 'uview-plus/components/u-cell/u-cell.vue'
 import UCellGroup from 'uview-plus/components/u-cell-group/u-cell-group.vue'
 import UToast from 'uview-plus/components/u-toast/u-toast.vue'
+import ULoadmore from 'uview-plus/components/u-loadmore/u-loadmore.vue'
 
 export default {
 	install(Vue: App) {
@@ -31,6 +33,7 @@ export default {
 		Vue.component('UForm', UForm)
 		Vue.component('UFormItem', UFormItem)
 		Vue.component('UInput', UInput)
+		Vue.component('USearch', USearch)
 		Vue.component('UPopup', UPopup)
 		Vue.component('UDivider', UDivider)
 		Vue.component('UCode', UCode)
@@ -38,5 +41,6 @@ export default {
 		Vue.component('UCell', UCell)
 		Vue.component('UCellGroup', UCellGroup)
 		Vue.component('UToast', UToast)
+		Vue.component('ULoadmore', ULoadmore)
 	}
 }
