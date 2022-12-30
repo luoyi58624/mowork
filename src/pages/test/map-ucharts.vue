@@ -5,8 +5,9 @@
 </template>
 
 <script setup lang="ts">
-import QiunDataCharts from '@/components/qiun-data-charts/qiun-data-charts'
+import QiunDataCharts from '@/components/qiun-data-charts/qiun-data-charts.vue'
 import chinaMap from '@/static/json/china-map.json'
+import { ref } from 'vue'
 
 console.log(chinaMap)
 const chartData = ref({
@@ -15,14 +16,12 @@ const chartData = ref({
 
 const opts = {
 	dataLabel: false,
-  data: {
-    '内蒙古': 1,
-    '山西': 1,
-  },
+	data: {
+		'内蒙古': 1,
+		'山西': 1
+	},
 	extra: {
-		map: {
-
-		}
+		map: {}
 	}
 }
 </script>

@@ -12,14 +12,15 @@ interface UserLoginInfo {
 interface CompanyInfo {
 	name: string // 公司名字
 	code: string // 公司编码
-	weburl: string // (站点、子平台)接口地址，即用户选择公司后获得的站点地址，后续绝大多数请求都是调用该地址
+	weburl: string // 站点接口地址
 }
 
 export const useUserStore = defineStore('user', {
 	state: () => ({ userLoginInfo: {} as UserLoginInfo, companyInfo: {} as CompanyInfo, hasCompanys: [] }),
 	getters: {
-		isLogin: state => state.userLoginInfo.uid != null,
-		siteUrl: state => 'https://' + state.companyInfo.weburl
+		isLogin: state => state.userLoginInfo.uid != null, // 用户是否登录
+		isSelectedCompany: state => state.companyInfo.code != null, // 用户是否选择了公司
+		siteUrl: state => 'https://' + state.companyInfo.weburl // (站点、子平台)接口地址，即用户选择公司后获得的站点地址，后续绝大多数请求都是调用该地址
 	},
 	actions: {
 		// 初始化用户store信息

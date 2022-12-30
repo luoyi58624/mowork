@@ -17,8 +17,10 @@ export const useAppStore = defineStore('app', {
 		 * @param prodEnv   生产环境下指定的服务器地址
 		 */
 		setServerEnv(prodEnv: ServerEnv) {
+			console.log(import.meta.env.MODE)
 			// 开发环境使用uniapp条件编译设置不同的环境
-			if (import.meta.env.MODE === 'development ') {
+			if (import.meta.env.MODE == 'development ') {
+				console.log('开发环境')
 				// #ifdef H5
 				this.serverUrl = ServerEnv.DEV
 				// #endif

@@ -1,8 +1,8 @@
 <template>
 	<view class="w-screen p-2">
 		<module-title title="项目统计" :share="false" />
-		<view style="height: 360px;">
-			<qiun-data-charts type="column" :eopts="option" :chartData="chartData" echartsH5 echartsApp />
+		<view style="height: 360px">
+			<qiun-data-charts :opts="option" type="column" ontouch :chartData="chartData" />
 		</view>
 		<view class="button-wrapper">
 			<view
@@ -10,8 +10,7 @@
 				:key="index"
 				class="button-item text-xs m-scale-85"
 				:class="{ active: activeButton === index }"
-				@click="switchButton(index)"
-			>
+				@click="switchButton(index)">
 				{{ button }}
 			</view>
 		</view>
@@ -20,35 +19,27 @@
 
 <script>
 import ModuleTitle from '../../components/ModuleTitle.vue'
+import QiunDataCharts from '@/components/qiun-data-charts/qiun-data-charts'
+
 export default {
 	components: {
-		ModuleTitle
+		ModuleTitle,
+		QiunDataCharts
 	},
 	data() {
 		return {
 			datas: [],
 			chartData: {},
 			option: {
-				grid: {
-					bottom: 150
-				},
+				update: true,
+				enableScroll: true,
 				xAxis: {
-					data: [],
-					axisLabel: {
-						margin: 12,
-						interval: 0,
-						rotate: -20
-					}
-				},
-				dataZoom: {
-					show: true, // 为true 滚动条出现
-					realtime: true,
-					type: 'slider', // 有type这个属性，滚动条在最下面，也可以不行，写y：36，这表示距离顶端36px，一般就是在图上面。
-					height: 30, // 表示滚动条的高度，也就是粗细
-					start: 0, // 表示默认展示20%～80%这一段。
-					end: 100,
-					bottom: 36,
-					brushSelect: false
+					itemCount: 5,
+					scrollShow: true, //新增是否显示滚动条，默认false
+					scrollAlign: 'left', //滚动条初始位置
+					rotateLabel: true,
+
+					rotateAngle: -45
 				}
 			},
 			buttons: ['客户名称', '项目类型', '项目经理', '按年份'], // 项目统计按钮组
@@ -58,15 +49,30 @@ export default {
 	methods: {
 		switchButton(index) {
 			this.activeButton = index
-			this.setData()
+			this.setData(null, index)
 		},
-		setData(datas) {
+		setData(datas, index = 0) {
 			if (datas) this.datas = datas
+			let name
+			switch (index) {
+				case 0:
+					name = '项目数量'
+					break
+				case 1:
+					name = '个数'
+          break
+        case 2:
+          name = '完成ISSUE'
+          break
+        case 3:
+          name = '完成项目'
+          break
+			}
 			this.chartData = {
 				categories: this.datas[this.activeButton].map(item => item.name),
 				series: [
 					{
-						name: '目标值',
+						name: name,
 						data: this.datas[this.activeButton].map(item => Number(item.count))
 					}
 				]

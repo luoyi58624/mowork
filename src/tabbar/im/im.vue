@@ -1,6 +1,6 @@
 <template>
 	<view>
-		<m-tabs-swiper2 v-model="tabIndex" :tabs="tabs" hasTabbar>
+		<m-tabs-swiper v-model="tabIndex" :tabs="tabs" hasTabbar>
 			<template #swiper1>
 				<Page1></Page1>
 			</template>
@@ -31,7 +31,7 @@
 			<template #swiper10>
 				<view>页面10</view>
 			</template>
-		</m-tabs-swiper2>
+		</m-tabs-swiper>
 	</view>
 </template>
 

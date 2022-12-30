@@ -130,7 +130,7 @@ export default {
 }
 </script>
 
-<style scoped lang="less">
+<style scoped lang="scss">
 .page-container {
 	height: calc(100vh - 94px);
 	padding: 8px;

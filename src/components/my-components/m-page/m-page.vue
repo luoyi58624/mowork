@@ -49,7 +49,7 @@ defineProps({
 	// 导航栏背景颜色
 	navbarBg: {
 		type: String,
-		default: 'rgb(245, 245, 245)'
+		default: '#ffffff'
 	},
 	// 导航栏文字颜色
 	navbarColor: {

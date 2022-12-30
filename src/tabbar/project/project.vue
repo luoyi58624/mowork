@@ -2,7 +2,7 @@
 	<m-page navbar-bg="var(--color-primary)" navbar-color="#ffffff">
 		<template #navbar>
 			<view class="w-full flex justify-between px-2">
-				<m-menu v-model="showMenu" offsetY="60rpx">
+				<m-menu v-model="showMenu" offsetY="70rpx">
 					<view class="flex items-center" :class="{ active: showMenu }" @tap="showMenu = !showMenu">
 						<text class="flex items-center font-bold mr-1">{{ menus[selectIndex].name }}</text>
 						<uni-icons
@@ -75,4 +75,3 @@ export default {
 }
 </script>
 
-<style scoped lang="less"></style>

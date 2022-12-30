@@ -1,8 +1,8 @@
 <template>
 	<view class="w-screen p-2">
 		<module-title title="计划统计" :share="false" />
-		<view style="height: 360px;">
-			<qiun-data-charts type="column" :eopts="option" :chartData="chartData" :tooltipShow="false" echartsH5 echartsApp />
+		<view style="height: 360px">
+			<qiun-data-charts :opts="option" type="column" ontouch :chartData="chartData" />
 		</view>
 		<view class="button-wrapper">
 			<view
@@ -10,8 +10,7 @@
 				:key="index"
 				class="button-item text-xs m-scale-85"
 				:class="{ active: activeButton === index }"
-				@click="switchButton(index)"
-			>
+				@click="switchButton(index)">
 				{{ button }}
 			</view>
 		</view>
@@ -20,36 +19,24 @@
 
 <script>
 import ModuleTitle from '../../components/ModuleTitle.vue'
-import { request } from '@/utils/request.js'
+import QiunDataCharts from '@/components/qiun-data-charts/qiun-data-charts'
+
 export default {
 	components: {
-		ModuleTitle
+		ModuleTitle,
+		QiunDataCharts
 	},
 	data() {
 		return {
 			datas: [],
 			chartData: {},
 			option: {
-				grid: {
-					left: '3%',
-					right: '4%',
-					bottom: 30,
-					top: 10,
-					containLabel: true
-				},
+				update: true,
+				enableScroll: true,
 				xAxis: {
-					type: 'value',
-					boundaryGap: [0, 0.01],
-					axisLine: {
-						show: false
-					},
-					axisTick: {
-						show: false
-					}
-				},
-				yAxis: {
-					type: 'category',
-					data: []
+					itemCount: 5,
+					scrollShow: true, //新增是否显示滚动条，默认false
+					scrollAlign: 'left' //滚动条初始位置
 				}
 			},
 			buttons: ['供应商', '计划状态', '按年份'],
@@ -62,18 +49,14 @@ export default {
 			this.setData()
 		},
 		getData() {
-			request
-				.get(this.$store.getters.siteUrl + '/?m=api&c=statistics&a=planTopStat', {
-					token: this.$store.state.userInfo.siteToken
-				})
-				.then(res => {
-					if (res.rcode == 0) {
-						this.datas[0] = res.data.topN.supplier
-						this.datas[1] = res.data.topN.state
-						this.datas[2] = res.data.topN.year
-						this.setData()
-					}
-				})
+			request.siteGet('/?m=api&c=statistics&a=planTopStat').then(res => {
+				if (res.rcode == 0) {
+					this.datas[0] = res.data.topN.supplier
+					this.datas[1] = res.data.topN.state
+					this.datas[2] = res.data.topN.year
+					this.setData()
+				}
+			})
 		},
 		setData() {
 			this.chartData = {
@@ -81,7 +64,6 @@ export default {
 				series: [
 					{
 						name: '目标值',
-						show: false,
 						data: this.datas[this.activeButton].map(item => Number(item.count))
 					}
 				]

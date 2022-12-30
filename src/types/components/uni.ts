@@ -1,12 +1,12 @@
 import { App } from 'vue'
-import UniForms from '@dcloudio/uni-ui/lib/uni-forms/uni-forms.vue'
-import UniFormsItem from '@dcloudio/uni-ui/lib/uni-forms-item/uni-forms-item.vue'
+import UniIcons from '@dcloudio/uni-ui/lib/uni-icons/uni-icons.vue'
 
 export default {
   install(Vue: App) {
-    Vue.component('UniForms', UniForms)
-    Vue.component('UniFormsItem', UniFormsItem)
+    Vue.component('UniIcons', UniIcons)
     Vue.component('Picker', {} as unknown)
+    Vue.component('Swiper', {} as unknown)
+    Vue.component('SwiperItem', {} as unknown)
   }
 }
 

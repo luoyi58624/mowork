@@ -14,6 +14,9 @@ import UPopup from 'uview-plus/components/u-popup/u-popup.vue'
 import UDivider from 'uview-plus/components/u-divider/u-divider.vue'
 import UCode from 'uview-plus/components/u-code/u-code.vue'
 import UPicker from 'uview-plus/components/u-picker/u-picker.vue'
+import UCell from 'uview-plus/components/u-cell/u-cell.vue'
+import UCellGroup from 'uview-plus/components/u-cell-group/u-cell-group.vue'
+import UToast from 'uview-plus/components/u-toast/u-toast.vue'
 
 export default {
 	install(Vue: App) {
@@ -32,5 +35,8 @@ export default {
 		Vue.component('UDivider', UDivider)
 		Vue.component('UCode', UCode)
 		Vue.component('UPicker', UPicker)
+		Vue.component('UCell', UCell)
+		Vue.component('UCellGroup', UCellGroup)
+		Vue.component('UToast', UToast)
 	}
 }

@@ -47,7 +47,19 @@
     {
       "path": "tabbar/user/user",
       "style": {
-        "navigationBarTitleText": "我的"
+        "navigationStyle": "custom",
+        "enablePullDownRefresh": true,
+        "app-plus": {
+          "bounce": "none",
+          "pullToRefresh": {
+            "offset": "120px"
+          }
+        },
+        "h5": {
+          "pullToRefresh": {
+            "offset": "80px"
+          }
+        }
       }
     },
     {
