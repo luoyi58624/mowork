@@ -6,6 +6,7 @@ export default {
   install(Vue: App) {
     Vue.component('UniForms', UniForms)
     Vue.component('UniFormsItem', UniFormsItem)
+    Vue.component('Picker', {} as unknown)
   }
 }
 

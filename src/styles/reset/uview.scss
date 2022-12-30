@@ -1,0 +1,5 @@
+.u-popup__content{
+  /* #ifdef H5  */
+  padding-bottom: var(--window-bottom);
+  /* #endif */
+}

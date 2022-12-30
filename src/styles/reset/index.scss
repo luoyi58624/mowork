@@ -1,0 +1,26 @@
+@import "./uni.scss";
+@import "./uview.scss";
+
+view,
+scroll-view,
+swiper,
+button,
+input,
+textarea,
+label,
+navigator,
+image {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+// uniapp会在不同尺寸设备下调整rem，以实现rpx的动态尺寸，默认情况下，文字也是使用rem进行渲染，这会导致在平板上字体变得巨大
+view, text {
+  font-size: 16px;
+}
+
+// 移除button边框
+button::after {
+  border: none !important;
+}

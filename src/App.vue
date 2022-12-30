@@ -4,6 +4,21 @@ import { onHide, onLaunch, onShow } from '@dcloudio/uni-app'
 const appStore = useAppStore()
 const userStore = useUserStore()
 
+// 应用启动生命周期
+onLaunch(() => {
+	appStore.initAppStore() // 初始化appStore
+	userStore.initUserStore() // 初始化userStore
+	checkLoginStatus() // 检查登录状态
+})
+
+onShow(() => {
+	uni.onWindowResize(windowResizeHandler)
+})
+
+onHide(() => {
+	uni.offWindowResize(windowResizeHandler)
+})
+
 // 检测登录状态
 function checkLoginStatus() {
 	if (userStore.isLogin) {
@@ -29,20 +44,6 @@ function closeSplashscreen() {
 function windowResizeHandler() {
 	appStore.systemInfo = uni.getSystemInfoSync()
 }
-
-onLaunch(() => {
-	checkLoginStatus()
-	windowResizeHandler()
-	appStore.initServer(ServerEnv.PROD)
-})
-
-onShow(() => {
-	uni.onWindowResize(windowResizeHandler)
-})
-
-onHide(() => {
-	uni.offWindowResize(windowResizeHandler)
-})
 </script>
 
 <style lang="scss">

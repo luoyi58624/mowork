@@ -1,0 +1,197 @@
+@font-face {
+  font-family: "iconfont"; /* Project id 3803133 */
+  src: url('/static/iconfont.ttf?t=1672221315116') format('truetype');
+}
+
+.iconfont {
+  font-family: "iconfont" !important;
+  font-size: 16px;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.control:before {
+  content: "\e623";
+}
+
+.project:before {
+  content: "\e9a5";
+}
+
+.fenxiang:before {
+  content: "\e739";
+}
+
+.bell-outline:before {
+  content: "\e731";
+}
+
+.bookmark-outline:before {
+  content: "\e736";
+}
+
+.camera-outline:before {
+  content: "\e747";
+}
+
+.clock-outline:before {
+  content: "\e74a";
+}
+
+.download:before {
+  content: "\e751";
+}
+
+.external:before {
+  content: "\e76b";
+}
+
+.email-outline:before {
+  content: "\e76d";
+}
+
+.file-add-outline:before {
+  content: "\e775";
+}
+
+.folder-add-outline:before {
+  content: "\e77b";
+}
+
+.folder-outline:before {
+  content: "\e77e";
+}
+
+.message:before {
+  content: "\e7a0";
+}
+
+.people-outline:before {
+  content: "\e7b6";
+}
+
+.add:before {
+  content: "\e7ca";
+}
+
+.search:before {
+  content: "\e7d3";
+}
+
+.settings:before {
+  content: "\e7d8";
+}
+
+.sync-outline:before {
+  content: "\e7e9";
+}
+
+.arrow-back:before {
+  content: "\e70f";
+}
+
+.arrow-downward:before {
+  content: "\e715";
+}
+
+.arrow-forward:before {
+  content: "\e71a";
+}
+
+.arrow-up:before {
+  content: "\e71c";
+}
+
+.arrow-down:before {
+  content: "\e71d";
+}
+
+.arrow-right:before {
+  content: "\e71e";
+}
+
+.arrow-left:before {
+  content: "\e71f";
+}
+
+.arrow-upward:before {
+  content: "\e721";
+}
+
+.check:before {
+  content: "\e719";
+}
+
+.delete:before {
+  content: "\e74e";
+}
+
+.undo:before {
+  content: "\e750";
+}
+
+.image:before {
+  content: "\e668";
+}
+
+.weixin:before {
+  content: "\e73b";
+}
+
+.filter:before {
+  content: "\e622";
+}
+
+.fenlei:before {
+  content: "\e621";
+}
+
+.woshou:before {
+  content: "\e85d";
+}
+
+.tongji:before {
+  content: "\e64d";
+}
+
+.saomiao:before {
+  content: "\e8d4";
+}
+
+.tubiao:before {
+  content: "\e60d";
+}
+
+.map:before {
+  content: "\e620";
+}
+
+.cangku:before {
+  content: "\e88d";
+}
+
+.shenpi:before {
+  content: "\e6ff";
+}
+
+.jiaojie:before {
+  content: "\e6ad";
+}
+
+.edit:before {
+  content: "\e66e";
+}
+
+.female:before {
+  content: "\e698";
+}
+
+.clock:before {
+  content: "\e683";
+}
+
+.task:before {
+  content: "\e60c";
+}
+

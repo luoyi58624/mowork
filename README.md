@@ -9,11 +9,11 @@
 * scss
 * uchart
 
-### 支持的开发工具：
+### 开发工具：
 
-1. HbuilderX（调试、打包APP必须用到）
-2. WebStorm 
-3. VsCode 
+1. HbuilderX （调试、打包 APP 必须用到，但开发体验极差）
+2. WebStorm （推荐使用，针对 WebStorm 在 src/types/components 中已声明全局组件）
+3. VsCode （TypeScript支持比 WebStorm 更好，但全局组件无法识别，未做适配）
 
 
 

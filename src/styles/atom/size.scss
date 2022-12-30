@@ -2,6 +2,14 @@
   width: 100vw;
 }
 
+.w-full {
+  width: 100%;
+}
+
+.w-auto {
+  width: auto !important;
+}
+
 .h-screen {
   // 如果是h5页面，页面高度需要减去底部导航栏的高度，底部导航栏固定50px
   /*  #ifdef H5  */
@@ -13,12 +21,12 @@
   /*  #endif  */
 }
 
-.w-full {
-  width: 100%;
-}
-
 .h-full {
   height: 100%;
+}
+
+.h-auto {
+  height: auto !important;
 }
 
 .w-0 {

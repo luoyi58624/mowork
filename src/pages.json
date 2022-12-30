@@ -2,15 +2,46 @@
   "easycom": {
     "autoscan": true,
     "custom": {
-      "^m-(.*)": "./components/my-components/m-$1/m-$1.vue",
-      "^uni-(.*)": "@dcloudio/uni-ui/lib/uni-$1/uni-$1.vue"
+      "^m-(.*)": "@/components/my-components/m-$1/m-$1.vue",
+      "^uni-(.*)": "@dcloudio/uni-ui/lib/uni-$1/uni-$1.vue",
+      "^u-(.*)": "uview-plus/components/u-$1/u-$1.vue"
     }
   },
   "pages": [
     {
       "path": "tabbar/home/home",
       "style": {
-        "navigationBarTitleText": "首页"
+        "navigationStyle": "custom",
+        "enablePullDownRefresh": true,
+        "app-plus": {
+          "bounce": "none",
+          "pullToRefresh": {
+            "offset": "90px"
+          }
+        },
+        "h5": {
+          "pullToRefresh": {
+            "offset": "44px"
+          }
+        }
+      }
+    },
+    {
+      "path": "tabbar/tool/tool",
+      "style": {
+        "navigationBarTitleText": "工具"
+      }
+    },
+    {
+      "path": "tabbar/project/project",
+      "style": {
+        "navigationStyle": "custom"
+      }
+    },
+    {
+      "path": "tabbar/im/im",
+      "style": {
+        "navigationBarTitleText": "聊天"
       }
     },
     {
@@ -61,6 +92,24 @@
         "iconPath": "static/tabbar/home.png",
         "selectedIconPath": "static/tabbar/home_active.png",
         "text": "首页"
+      },
+      {
+        "pagePath": "tabbar/tool/tool",
+        "iconPath": "static/tabbar/tool.png",
+        "selectedIconPath": "static/tabbar/tool_active.png",
+        "text": "工具"
+      },
+      {
+        "pagePath": "tabbar/project/project",
+        "iconPath": "static/tabbar/project.png",
+        "selectedIconPath": "static/tabbar/project_active.png",
+        "text": "项目"
+      },
+      {
+        "pagePath": "tabbar/im/im",
+        "iconPath": "static/tabbar/im.png",
+        "selectedIconPath": "static/tabbar/im_active.png",
+        "text": "消息"
       },
       {
         "pagePath": "tabbar/user/user",

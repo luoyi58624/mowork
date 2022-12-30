@@ -1,0 +1,2 @@
+1. m-icon组件引用的是iconfont的图标，无需指定前缀，配置的Font Family只需要和该组件class一致即可
+2. css文件和ttf字体文件必须放到static目录下，因为page.json配置的某些页面需要用到自定义的图标
