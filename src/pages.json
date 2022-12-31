@@ -35,7 +35,7 @@
     {
       "path": "tabbar/project/project",
       "style": {
-        "navigationStyle": "custom"
+        "navigationBarTitleText": "项目圈"
       }
     },
     {
@@ -66,32 +66,6 @@
       "path": "pages/login/login",
       "style": {
         "navigationBarTitleText": "用户登录"
-      }
-    },
-    {
-      "path": "pages/project/list/list",
-      "style": {
-        "navigationBarTitleText": "",
-        "enablePullDownRefresh": true,
-        "app-plus": {
-          "pullToRefresh": {
-            "offset": "84px"
-          }
-        }
-      }
-    },
-    {
-      "path": "pages/project/detail/detail",
-      "style": {
-        "navigationBarTitleText": "",
-        "app-plus": {
-          "bounce": "none"
-        }
-      }
-    }, {
-      "path": "pages/project/audit/audit",
-      "style": {
-        "navigationBarTitleText": "项目审批日志"
       }
     }
   ],

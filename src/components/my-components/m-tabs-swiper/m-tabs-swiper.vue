@@ -1,11 +1,11 @@
 <template>
 	<view class="m-tabs-swiper-wrapper">
 		<view class="w-full" style="height: 50px">
-			<m-tabs :tabData="tabs" :modelValue="modelValue" @change="tabChange" />
+			<m-tabs :tabs="tabs" :modelValue="modelValue" @change="changeTabIndex" />
 		</view>
 
 		<view class="flex-1">
-			<swiper class="h-full" :current="modelValue" :duration="250" @change="swiperChange">
+			<swiper class="h-full" skip-hidden-item-layout :current="modelValue" :duration="250" @change="swiperChange">
 				<swiper-item v-for="(item, index) in tabs" :key="index">
 					<view :class="['h-full', `m-tabs-content-${index}`]">
 						<slot :name="'swiper' + (index + 1)"></slot>
@@ -52,17 +52,11 @@ watch(
 	}
 )
 
-function tabChange(e) {
-	// console.log(e)
-	changeTabIndex(e)
-}
-
 function swiperChange(e) {
-	changeTabIndex(e.target.current)
+	changeTabIndex(e.detail.current)
 }
 
 function changeTabIndex(index) {
-	console.log(index)
 	emits('update:modelValue', index)
 }
 </script>

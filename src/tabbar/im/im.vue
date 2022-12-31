@@ -32,54 +32,25 @@
 				<view>页面10</view>
 			</template>
 		</m-tabs-swiper>
+<!--    <m-tabs :tabs="tabs" v-model="tabIndex"></m-tabs>-->
 	</view>
 </template>
 
 <script>
 import Page1 from './Page1.vue'
 import Page2 from './Page2.vue'
+
 export default {
 	components: { Page1, Page2 },
 	data() {
 		return {
 			tabIndex: 0,
-			tabs: [
-				{
-					name: '页面1'
-				},
-				{
-					name: '页面2'
-				},
-				{
-					name: '页面3'
-				},
-				{
-					name: '页面4'
-				},
-				{
-					name: '页面5'
-				},
-				{
-					name: '页面6'
-				},
-				{
-					name: '页面7'
-				},
-				{
-					name: '页面8'
-				},
-				{
-					name: '页面9'
-				},
-				{
-					name: '页面10'
-				}
-			]
+			// tabs: ['页面1', '页面2', '页面3', '页xaxas面4', '页面5', '页面6', '页面7', '页面8', '页面9', '页面10']
+			tabs: ['页面1', '页面2']
 		}
 	},
 	methods: {}
 }
 </script>
 
-<style lang="scss">
-</style>
+<style lang="scss"></style>

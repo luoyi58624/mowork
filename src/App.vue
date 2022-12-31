@@ -36,7 +36,7 @@ function checkLoginStatus() {
 // 关闭启动封面-仅APP
 function closeSplashscreen() {
 	// #ifdef APP
-	plus.navigator.closeSplashscreen()
+	// plus.navigator.closeSplashscreen()
 	// #endif
 }
 

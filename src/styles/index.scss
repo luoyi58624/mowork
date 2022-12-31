@@ -13,15 +13,15 @@ page {
   --color-black-3: #4a4a4a;
   --color-primary: #0078d4;
 
-  --color-primary-light: #{$uni-color-primary-light};
-  --color-success: #{$uni-color-success};
-  --color-success-light: #{$uni-color-success-light};
-  --color-warning: #{$uni-color-warning};
-  --color-warning-light: #{$uni-color-warning-light};
-  --color-error: #{$uni-color-error};
-  --color-error-light: #{$uni-color-error-light};
-  --color-info: #{$uni-color-info};
-  --color-info-light: #{$uni-color-info-light};
+  --color-primary-light: #f0f9ff;
+  --color-success: #10b981;
+  --color-success-light: #ecfdf5;
+  --color-warning: #f59e0b;
+  --color-warning-light: #fffbeb;
+  --color-error: #ef4444;
+  --color-error-light: #fef2f2;
+  --color-info: #7f899a;
+  --color-info-light: #e4e4e7;
 
 
   background-color: var(--color-white-1);

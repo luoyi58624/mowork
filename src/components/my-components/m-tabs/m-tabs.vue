@@ -1,33 +1,39 @@
 <template>
 	<view
 		class="w-full"
-		style="height: 50px"
 		:style="{
+			height: height,
 			backgroundColor: bgColor,
 			color: textColor
 		}">
-		<scroll-view :scroll-x="true" class="scroll-view-h" scroll-with-animation :scroll-left="slider.scrollLeft">
-			<view class="scroll-container">
+		<scroll-view :scroll-x="true" id="tabs-scroll" scroll-with-animation :scroll-left="scrollLeft">
+			<view class="relative space-nowrap">
 				<view class="flex">
 					<view
-						v-for="(item, index) in tabData"
+						v-for="(item, index) in tabs"
 						:key="index"
-						class="_item"
-						:id="'_tab_' + index"
+						class="flex-1 flex-center"
 						:class="{ _active: modelValue === index }"
 						:style="{
-							color: modelValue == index ? activeColor : textColor
+							height: height,
+							color: modelValue == index ? activeColor : textColor,
+							padding: `0px ${tabPadding}px`
 						}"
-						@click="tabClick(index)"
-						>{{ item }}
+						@click="tabClick(index)">
+						<view :id="'m-tab-' + index" class="tab-item font-bold">
+							{{ item }}
+						</view>
 					</view>
 				</view>
 				<view
-					class="_underline"
+					class="absolute bottom-0"
 					:style="{
+						transition: 'all 0.3s ease-out',
 						transform: 'translateX(' + slider.left + 'px)',
 						width: slider.width + 'px',
-						backgroundColor: underLineColor
+						height: sliderHeight,
+						borderRadius: sliderHeight,
+						backgroundColor: sliderColor
 					}" />
 			</view>
 		</scroll-view>
@@ -41,16 +47,21 @@ export default {
 </script>
 
 <script setup lang="ts">
-import { onMounted, onUnmounted, ref, watch } from 'vue'
+import { nextTick, onMounted, ref, watch } from 'vue'
 
 const props = defineProps({
 	modelValue: {
 		type: Number,
 		default: 0
 	},
-	tabData: {
+	// 标签名字
+	tabs: {
 		type: Array,
 		default: () => []
+	},
+	height: {
+		type: String,
+		default: '50px'
 	},
 	bgColor: {
 		type: String,
@@ -66,133 +77,90 @@ const props = defineProps({
 		default: 'var(--color-primary)'
 	},
 	// 下划线颜色
-	underLineColor: {
+	sliderColor: {
 		type: String,
 		default: 'var(--color-primary)'
+	},
+	// 下划线高度
+	sliderHeight: {
+		type: String,
+		default: '2px'
 	}
 })
 
-const emits = defineEmits(['update:modelValue'])
+const emits = defineEmits(['update:modelValue', 'change'])
 
-const scorll = ref({})
+let allTabAttr = []
+let scrollDom = {
+	scrollWidth: 0, // 滚动条宽度
+	clientWidth: 0 // 可视宽度
+}
+const scrollLeft = ref(0) // 滚动条位置
+const tabPadding = 16
+// 滑块属性
 const slider = ref({
-	left: 0,
-	width: 0,
-	scrollLeft: 0
+	left: 0, // 滑块距离左边的距离
+	width: 0 // 滑块宽度
 })
-
-watch(
-	() => props.tabData,
-	value => {
-		updateTabWidth()
-	}
-)
 
 watch(
 	() => props.modelValue,
 	value => {
-		tabToIndex(value)
+		updateSlider(value)
 	}
 )
 
 function tabClick(index) {
 	emits('update:modelValue', index)
+	emits('change', index)
 }
 
-// 计算滚动位置
-function calcScrollPosition() {
-	const query = uni.createSelectorQuery()
+// 设置滚动容器属性
+function init() {
+	return new Promise(resolve => {
+		uni
+			.createSelectorQuery()
+			.select('#tabs-scroll')
+			.scrollOffset((res: any) => {
+				scrollDom.scrollWidth = res.scrollWidth
+			})
+			.exec()
+		uni
+			.createSelectorQuery()
+			.select('#tabs-scroll')
+			.boundingClientRect((res: any) => {
+				scrollDom.clientWidth = res.width
+			})
+			.exec()
 
-	query
-		.select('#_scroll')
-		.boundingClientRect(res => {
-			console.log(res)
-			scorll.value = res
-			updateTabWidth()
-		})
-		.exec()
+		uni
+			.createSelectorQuery()
+			.selectAll('.tab-item')
+			.boundingClientRect((res: any) => {
+				allTabAttr = res
+        resolve(res)
+			})
+			.exec()
+	})
 }
 
-function updateTabWidth(index = 0) {
-	const data = props.tabData
-
-	const query = uni.createSelectorQuery()
-
-	query
-		.select('#_tab_' + index)
-		.boundingClientRect((res: any) => {
-			slider.value = {
-				width: res.width,
-				left: res.left,
-				// scrollLeft: res.left - (data[index - 1] ? data[index - 1]._slider.width : 0))
-				scrollLeft: 0
-			}
-
-			if (props.modelValue == index) {
-				tabToIndex(props.modelValue)
-			}
-
-			index++
-			if (data.length > index) {
-				updateTabWidth(index)
-			}
-		})
-		.exec()
-}
-
-function tabToIndex(index) {
-	// let _slider = this.tabList[index]._slider
-	//
-	// let width = uni.upx2px(this.defaultConfig.underLineWidth)
-	//
-	// if (!width) {
-	// 	if (this.defaultConfig.itemWidth) {
-	// 		width = uni.upx2px(this.defaultConfig.itemWidth)
-	// 	} else {
-	// 		width = this.tabList[index][this.defaultConfig.key].length * 16
-	// 	}
-	// 	width += uni.upx2px(this.defaultConfig.underLinePadding) * 2
-	// }
-	//
-	// let scorll_left = this.scorll.left || 0
-	//
-	// this.slider = {
-	// 	left: _slider.left - scorll_left + (_slider.width - width) / 2,
-	// 	width: width,
-	// 	scrollLeft: _slider.scrollLeft - scorll_left
-	// }
+function updateSlider(index) {
+	console.log(allTabAttr[index])
+	slider.value = {
+		width: allTabAttr[index].width + tabPadding,
+		left: allTabAttr[index].left - tabPadding / 2 - 2
+	}
+	scrollLeft.value = Math.min(
+		scrollDom.scrollWidth - scrollDom.clientWidth,
+		Math.max(0, allTabAttr[index].left + allTabAttr[index].width / 2 - scrollDom.clientWidth / 2)
+	)
 }
 
 onMounted(() => {
-	calcScrollPosition()
-	uni.onWindowResize(calcScrollPosition)
-})
-
-onUnmounted(() => {
-	uni.offWindowResize(calcScrollPosition)
+	init().then(()=>{
+    updateSlider(props.modelValue)
+  })
 })
 </script>
 
-<style lang="scss" scoped>
-.scroll-view-h {
-	white-space: nowrap;
-	width: 100%;
-	height: 100%;
-	box-sizing: border-box;
-
-	._scroll-content {
-		width: 100%;
-		height: 100%;
-		position: relative;
-
-		._underline {
-			height: 2px;
-			background-color: #e54d42;
-			border-radius: 2px;
-			transition: 0.5s;
-			position: absolute;
-			bottom: 0;
-		}
-	}
-}
-</style>
+<style lang="scss"></style>

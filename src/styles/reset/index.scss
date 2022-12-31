@@ -24,3 +24,10 @@ view, text {
 button::after {
   border: none !important;
 }
+
+// 隐藏scroll-view滚动条
+::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+  background-color: transparent;
+}
