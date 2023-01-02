@@ -5,6 +5,8 @@ interface ServerData {
 	data: any
 }
 
+let showModelFlag = false  // 显示重新登录弹窗唯一标识，防止弹出多个弹窗
+
 // 云平台get请求
 function get(url, data?) {
 	const appStore = useAppStore()
@@ -89,7 +91,8 @@ function responseSuccessHandler(res, reslove) {
 	const userStore = useUserStore()
 	if (res.data) {
 		if (res.data.rcode == 401) {
-			console.log(res, '登录过期')
+			if(showModelFlag) return
+			showModelFlag = true
 			if (userStore.isLogin) {
 				userStore.clearLoginInfo()
 				uni.showModal({
@@ -98,6 +101,7 @@ function responseSuccessHandler(res, reslove) {
 					showCancel: false,
 					confirmText: '确认',
 					success: () => {
+						showModelFlag = false
 						uni.reLaunch({
 							url: '/pages/login/login'
 						})

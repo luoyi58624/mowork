@@ -6,7 +6,7 @@ import MProgress from '@/components/my-components/m-progress/m-progress.vue'
 import MSkeleton from '@/components/my-components/m-skeleton/m-skeleton.vue'
 import MTabs from '@/components/my-components/m-tabs/m-tabs.vue'
 import MTabsSwiper from '@/components/my-components/m-tabs-swiper/m-tabs-swiper.vue'
-import MTag from '@/components/my-components/m-tag/m-tag.vue'
+import MCheckbox from '@/components/my-components/m-checkbox/m-checkbox.vue'
 
 // 该文件仅仅是给 webstorm 添加全局组件提示，pages.json 已经开启 easycom 自动导入功能
 export default {
@@ -19,7 +19,7 @@ export default {
     Vue.component('MTabs', MTabs)
     Vue.component('MTabsSwiper', MTabsSwiper)
     Vue.component('MTabsSwiper', MTabsSwiper)
-    Vue.component('MTag', MTag)
+    Vue.component('MCheckbox', MCheckbox)
   }
 }
 

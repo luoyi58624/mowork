@@ -6,59 +6,19 @@ import { defineStore } from 'pinia'
 export const useCompanyStore = defineStore('company', {
 	state: () => ({
 		projectManagers: [], // 项目经理
-		projectManagersInit: false,
-		projectStatus: [
-			{
-				name: '已驳回',
-				value: '0',
-				boo: false
-			},
-			{
-				name: '进行中',
-				value: '1',
-				boo: false
-			},
-			{
-				name: '待审核',
-				value: '2',
-				boo: false
-			},
-			{
-				name: '待批准',
-				value: '3',
-				boo: false
-			},
-			{
-				name: '已暂停',
-				value: '5',
-				boo: false
-			},
-			{
-				name: '已完结',
-				value: '6',
-				boo: false
-			},
-			{
-				name: '已关闭',
-				value: '8',
-				boo: false
-			},
-			{
-				name: '待复核',
-				value: '9',
-				boo: false
-			}
-		]
+		users: [], // 公司所有成员
+		projectStatus: projectStatus, // 项目状态
+		urgencyDegrees: urgencyDegrees // 紧急程度
 	}),
 	getters: {},
 	actions: {
 		/**
 		 * 获取该公司所有的项目经理
-		 * @param reset 是否重置，如果为false，第一次加载成功后将不再发送请求，而是直接返回store内的数据
+		 * @param reset 是否重置，如果为false，直接返回store内的数据
 		 */
 		getProjectManagers(reset = false) {
 			return new Promise((reslove, reject) => {
-				if (this.projectManagersInit && !reset) {
+				if (this.projectManagers.length > 0 && !reset) {
 					reslove(this.projectManagers)
 				} else {
 					request
@@ -72,7 +32,6 @@ export const useCompanyStore = defineStore('company', {
 									}
 								})
 								this.projectManagers = data
-								this.projectManagersInit = true
 								reslove(data)
 							} else {
 								reject(res)
@@ -83,6 +42,79 @@ export const useCompanyStore = defineStore('company', {
 						})
 				}
 			})
+		},
+		// 获取公司所有的用户
+		getAllUser(reset = false) {
+			return new Promise(reslove => {
+				if (this.users.length > 0 && !reset) {
+					reslove(this.users)
+				} else {
+					request.siteGet('/?m=api&c=user&a=plist').then(res => {
+						const data = res.data.users
+						this.users = data
+						reslove(data)
+					})
+				}
+			})
 		}
 	}
 })
+
+const projectStatus = [
+	{
+		name: '已驳回',
+		value: '0',
+		boo: false
+	},
+	{
+		name: '进行中',
+		value: '1',
+		boo: false
+	},
+	{
+		name: '待审核',
+		value: '2',
+		boo: false
+	},
+	{
+		name: '待批准',
+		value: '3',
+		boo: false
+	},
+	{
+		name: '已暂停',
+		value: '5',
+		boo: false
+	},
+	{
+		name: '已完结',
+		value: '6',
+		boo: false
+	},
+	{
+		name: '已关闭',
+		value: '8',
+		boo: false
+	},
+	{
+		name: '待复核',
+		value: '9',
+		boo: false
+	}
+]
+
+// 紧急程度
+const urgencyDegrees = [
+	{
+		name: '非常紧急',
+		value: 1
+	},
+	{
+		name: '紧急',
+		value: 2
+	},
+	{
+		name: '一般',
+		value: 3
+	}
+]

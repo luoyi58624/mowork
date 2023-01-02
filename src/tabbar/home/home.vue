@@ -3,13 +3,13 @@
 		<template #navbar>
 			<Header @load-home-data="getHomeData()" />
 		</template>
-<!--		<Content ref="contentRef" />-->
+		<Content ref="contentRef" />
 	</m-page>
 </template>
 
 <script setup lang="ts">
 import Header from './modules/header/Header.vue'
-// import Content from './modules/content/Content.vue'
+import Content from './modules/content/Content.vue'
 import { ref, unref } from 'vue'
 import { onPullDownRefresh, onReady } from '@dcloudio/uni-app'
 
@@ -18,7 +18,7 @@ const contentRef = ref()
 
 // 加载首页所有模块的数据
 function getHomeData() {
-	// unref(contentRef).getData()
+	unref(contentRef).getData()
 }
 
 onPullDownRefresh(() => {

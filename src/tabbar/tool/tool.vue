@@ -32,6 +32,8 @@
 </template>
 
 <script>
+import { mapState } from 'pinia'
+import { useUserStore } from '@/store/user'
 export default {
 	data() {
 		return {
@@ -106,9 +108,12 @@ export default {
 			]
 		}
 	},
+  computed: {
+    ...mapState(useUserStore, ['isSelectedCompany'])
+  },
 	methods: {
 		skipPage(url) {
-			if (this.$store.getters.isSelectedCompany) {
+			if (this.isSelectedCompany) {
 				if (url && url !== '') {
 					uni.navigateTo({
 						url

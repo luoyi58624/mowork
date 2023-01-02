@@ -24,7 +24,6 @@
 
 <script>
 import ModuleTitle from '../../components/ModuleTitle.vue'
-import { request } from '@/utils/request.js'
 export default {
 	components: {
 		ModuleTitle
@@ -37,9 +36,7 @@ export default {
 	methods: {
 		getData() {
 			request
-				.get(this.$store.getters.siteUrl + '/?m=api&c=statistics&a=projectIndex', {
-					token: this.$store.state.userInfo.siteToken
-				})
+				.siteGet( '/?m=api&c=statistics&a=projectIndex')
 				.then(res => {
 					if (res.rcode == 0) {
 						this.tableData = res.data.index

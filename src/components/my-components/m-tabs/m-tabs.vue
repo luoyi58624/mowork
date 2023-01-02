@@ -47,7 +47,7 @@ export default {
 </script>
 
 <script setup lang="ts">
-import { nextTick, onMounted, ref, watch } from 'vue'
+import { onMounted, ref, watch } from 'vue'
 
 const props = defineProps({
 	modelValue: {
@@ -85,6 +85,10 @@ const props = defineProps({
 	sliderHeight: {
 		type: String,
 		default: '2px'
+	},
+	sliderLeft: {
+		type: Number,
+		default: 0
 	}
 })
 
@@ -95,6 +99,7 @@ let scrollDom = {
 	scrollWidth: 0, // 滚动条宽度
 	clientWidth: 0 // 可视宽度
 }
+let sliderCurrentLeft = 0
 const scrollLeft = ref(0) // 滚动条位置
 const tabPadding = 16
 // 滑块属性
@@ -138,28 +143,37 @@ function init() {
 			.selectAll('.tab-item')
 			.boundingClientRect((res: any) => {
 				allTabAttr = res
-        resolve(res)
+				resolve(res)
 			})
 			.exec()
 	})
 }
 
 function updateSlider(index) {
-	console.log(allTabAttr[index])
+	const sliderLeft = allTabAttr[index].left - tabPadding / 2 - 2
 	slider.value = {
 		width: allTabAttr[index].width + tabPadding,
-		left: allTabAttr[index].left - tabPadding / 2 - 2
+		left: sliderLeft
 	}
+	sliderCurrentLeft = sliderLeft
 	scrollLeft.value = Math.min(
 		scrollDom.scrollWidth - scrollDom.clientWidth,
 		Math.max(0, allTabAttr[index].left + allTabAttr[index].width / 2 - scrollDom.clientWidth / 2)
 	)
 }
 
+function touchSlider(num) {
+	slider.value.left = sliderCurrentLeft + num / props.tabs.length
+}
+
 onMounted(() => {
-	init().then(()=>{
-    updateSlider(props.modelValue)
-  })
+	init().then(() => {
+		updateSlider(props.modelValue)
+	})
+})
+
+defineExpose({
+	touchSlider
 })
 </script>
 

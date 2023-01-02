@@ -67,6 +67,230 @@
       "style": {
         "navigationBarTitleText": "用户登录"
       }
+    },
+    {
+      "path": "pages/test/dev-debug",
+      "style": {
+        "navigationBarTitleText": "调试页面"
+      }
+    },
+    {
+      "path": "pages/project/list/list",
+      "style": {
+        "navigationBarTitleText": "",
+        "enablePullDownRefresh": true,
+        "app-plus": {
+          "pullToRefresh": {
+            "offset": "84px"
+          }
+        }
+      }
+    },
+    {
+      "path": "pages/project/detail/detail",
+      "style": {
+        "navigationBarTitleText": "",
+        "app-plus": {
+          "bounce": "none"
+        }
+      }
+    },
+    {
+      "path": "pages/project/audit/audit",
+      "style": {
+        "navigationBarTitleText": "项目审批日志"
+      }
+    },
+    {
+      "path": "pages/task/list/list",
+      "style": {
+        "navigationBarTitleText": "任务列表",
+        "enablePullDownRefresh": true,
+        "app-plus": {
+          "pullToRefresh": {
+            "offset": "84px"
+          }
+        }
+      }
+    },
+    {
+      "path": "pages/task/detail/detail",
+      "style": {
+        "navigationBarTitleText": "任务详情"
+      }
+    },
+    {
+      "path": "pages/bom/detail/detail",
+      "style": {
+        "navigationBarTitleText": "零部件详情"
+      }
+    },
+    {
+      "path": "pages/plan/gantt/gantt",
+      "style": {
+        "navigationBarTitleText": "甘特图"
+      }
+    },
+    {
+      "path": "pages/plan/detail/detail",
+      "style": {
+        "navigationBarTitleText": "计划详情"
+      }
+    },
+    {
+      "path": "pages/plan/list/list",
+      "style": {
+        "navigationBarTitleText": "计划控制",
+        "enablePullDownRefresh": true,
+        "app-plus": {
+          "pullToRefresh": {
+            "offset": "84px"
+          },
+          "animationType": "pop-in",
+          "animationDuration": 300
+        }
+      }
+    },
+    {
+      "path": "pages/issue/detail/detail",
+      "style": {
+        "navigationBarTitleText": "ISSUE详情"
+      }
+    },
+    {
+      "path": "pages/issue/list/list",
+      "style": {
+        "navigationBarTitleText": "ISSUE列表",
+        "enablePullDownRefresh": true,
+        "h5": {
+          "titleNView": {
+            "buttons": [
+              {
+                "text": "\ue7d8",
+                "fontSize": "24px",
+                "fontSrc": "/static/iconfont.ttf"
+              },
+              {
+                "text": "\ue66e",
+                "fontSize": "24px",
+                "fontSrc": "/static/iconfont.ttf"
+              }
+            ]
+          }
+        },
+        "app-plus": {
+          "titleNView": {
+            "buttons": [
+              {
+                "text": "\ue7d8",
+                "fontSize": "24px",
+                "fontSrc": "/static/iconfont.ttf"
+              },
+              {
+                "text": "\ue66e",
+                "fontSize": "24px",
+                "fontSrc": "/static/iconfont.ttf"
+              }
+            ]
+          },
+          "pullToRefresh": {
+            "offset": "84px"
+          }
+        }
+      }
+    },
+    {
+      "path": "pages/issue/add/add",
+      "style": {
+        "navigationBarTitleText": "添加ISSUE",
+        "h5": {
+          "titleNView": {
+            "buttons": [
+              {
+                "text": "\ue719",
+                "fontSize": "24px",
+                "fontSrc": "/static/iconfont.ttf"
+              }
+            ]
+          }
+        },
+        "app-plus": {
+          "titleNView": {
+            "buttons": [
+              {
+                "text": "\ue719",
+                "fontSize": "24px",
+                "fontSrc": "/static/iconfont.ttf"
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "path": "pages/issue/setting/setting",
+      "style": {
+        "navigationBarTitleText": "ISSUE设置",
+        "enablePullDownRefresh": false
+      }
+    },
+    {
+      "path": "pages/project/plan/list/list",
+      "style": {
+        "navigationBarTitleText": "",
+        "enablePullDownRefresh": false
+      }
+    },
+    {
+      "path": "pages/user/detail/detail",
+      "style": {
+        "navigationBarTitleText": "用户信息",
+        "enablePullDownRefresh": false
+      }
+    },
+    {
+      "path": "pages/user/select/select",
+      "style": {
+        "navigationBarTitleText": "",
+        "enablePullDownRefresh": true,
+        "navigationBarShadow": {},
+        "h5": {
+          "titleNView": {
+            "buttons": [
+              {
+                "text": "完成",
+                "type": "none",
+                "fontSize": "16px"
+              }
+            ]
+          }
+        },
+        "app-plus": {
+          "titleNView": {
+            "buttons": [
+              {
+                "text": "完成",
+                "type": "none",
+                "fontSize": "16px"
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "path": "pages/user/company-users/company-users",
+      "style": {
+        "navigationBarTitleText": "公司同事",
+        "enablePullDownRefresh": false
+      }
+    },
+    {
+      "path": "pages/user/company-users/detail/detail",
+      "style": {
+        "navigationBarTitleText": "人员信息",
+        "enablePullDownRefresh": false
+      }
     }
   ],
   "globalStyle": {

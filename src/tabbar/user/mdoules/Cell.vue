@@ -14,7 +14,7 @@
 		</view>
 		<view class="mt-2 bg-white rounded-md m-elevation-1">
 			<u-cell-group :border="false">
-				<u-cell title="测试页面" isLink :border="false" @click="skipPage('/pages/dev-debug')"></u-cell>
+				<u-cell title="测试页面" isLink :border="false" @click="skipPage('/pages/test/dev-debug')"></u-cell>
 			</u-cell-group>
 		</view>
 		<u-toast ref="uToast"></u-toast>

@@ -51,28 +51,28 @@ export function loadFileIcon(fileName) {
 	const fileSuffix = getFileSuffix(fileName)
 	switch (fileSuffix) {
 		case 'exe':
-			return require('@/static/file-icon/exe.png')
+			return '/static/file-icon/exe.png'
 		case 'doc':
 		case 'docx':
-			return require('@/static/file-icon/word.png')
+			return '/static/file-icon/word.png'
 		case 'xls':
 		case 'xlsx':
-			return require('@/static/file-icon/excel.png')
+			return '/static/file-icon/excel.png'
 		case 'ppt':
 		case 'pptx':
-			return require('@/static/file-icon/ppt.png')
+			return '/static/file-icon/ppt.png'
 		case 'pdf':
-			return require('@/static/file-icon/pdf.png')
+			return '/static/file-icon/pdf.png'
 		case 'apk':
-			return require('@/static/file-icon/android.png')
+			return '/static/file-icon/android.png'
 		case 'zip':
 		case 'rar':
-			return require('@/static/file-icon/compress.png')
+			return '/static/file-icon/compress.png'
 		case 'txt':
 		case 'text':
-			return require('@/static/file-icon/txt.png')
+			return '/static/file-icon/txt.png'
 		default:
-			return require('@/static/file-icon/other.png')
+			return '/static/file-icon/other.png'
 	}
 }
 

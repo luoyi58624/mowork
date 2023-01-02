@@ -32,6 +32,13 @@ export const useUserStore = defineStore('user', {
 			if (companyInfo) this.companyInfo = JSON.parse(companyInfo)
 			if (hasCompanys) this.hasCompanys = JSON.parse(hasCompanys)
 		},
+		// 退出登录
+		logout() {
+			this.clearLoginInfo()
+			uni.reLaunch({
+				url: '/pages/login'
+			})
+		},
 		// 清除登录信息
 		clearLoginInfo() {
 			this.userInfo = {}
